@@ -1,0 +1,12 @@
+CREATE TABLE users (
+    ID VARCHAR(36) NOT NULL PRIMARY KEY,
+    Name VARCHAR(255) NOT NULL,
+    Age INT NOT NULL,
+    Gender VARCHAR(255) NOT NULL
+);
+
+Create Table degrees (
+    Id VARCHAR(36),
+    Degree VARCHAR(255) NOT NULL,
+    FOREIGN KEY (Id) REFERENCES users (ID)
+);
