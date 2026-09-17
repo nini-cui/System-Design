@@ -1,0 +1,22 @@
+name: Migrate Schema
+
+on:
+  push:
+    paths:
+      - 'data-sharding/schema/migrations/**'
+
+jobs:
+  migrate-schema:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run DB migrations
+        run: echo "About to migrate DB schema"
+        # env: 
+        #   SHARD1_DATABASE_URL: ${{ secrets.SHARD1_DATABASE_URL }}
+        #   SHARD2_DATABASE_URL: ${{ secrets.SHARD2_DATABASE_URL }}
+        #   SHARD3_DATABASE_URL: ${{ secrets.SHARD3_DATABASE_URL }}
+        # run: make migrate-up
